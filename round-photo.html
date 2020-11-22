@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./assets/stylesheet/css/round-photo.css">
+</head>
+  <body>
+    <h1>Round photo</h1>
+    <div class="brief">
+      <p>
+        Comportement souhaité : créer une ombre au passage de la souris et arrondir la photo lorsque l'on click dessus.
+        <br> (voir round-photo.html)
+      </p>
+    </div>
+      <div id="photo1"><img src="./assets/images/round-photo/photo1.jpg" width="20%"></div>
+    <script>
+       //TODO CREER UNE OMBRE AU MOUSEOVER ET ARRONDIR LA PHOTO AU CLIC
+
+      //Méthode Matthieu pour coder plus rapidement : je crée une variable cl qui éxécutera la commande console.log tout au long de mon script
+      const cl = console.log
+        // Je cree une variable photo qui me permettra d'agir sur mon image
+        let photo = document.querySelector("#photo1");
+        //J'ajoute un addEventListener à ma photo qui détectera le clic de l'utilisateur et qui déclenchera une fonction lors de cette action; ici la fonction sera d'arrondir la photo. Pour cela je vais chercher l'élément auquel appliqué cette transformation avec le querySelector, ici 'img' puis je lui attribue une nouvelle classe 'round-photo' à l'aide de classList. Dans mon css j'attribue à cette nouvelle classe les propriétés qui permettront de changer son style puis la méthode toggle permettra au clic de basculer entre l'id attribuer à mon image par défaut et sa nouvelle classe et ainsi switcher entre les propriétés CSS attribuées à l'image de base et celle qui seront créees pour ma nouvelle classe.
+        photo.addEventListener("click", () =>
+        {document.querySelector("img").classList.toggle("round-photo")});
+        //Ici je procède de la même manière que précédemment à la seule différence que les nouvelles propriétés CSS ne seront pas activées au clic de la souris mais au survol de la souris ('mouseover')
+        photo.addEventListener("mouseover", function(){
+          document.querySelector("img").classList.toggle('shadow')
+        })
+    </script>
+  </body>
+</html>

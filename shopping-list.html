@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./assets/stylesheet/css/shopping-list.css">
+</head>
+  <body>
+  <div class="brief">
+    <h1>Shopping list</h1>
+    
+      <p>
+        J'aimerai afficher ma liste de course.
+        <br>2/ Génial ce formulaire va le permettre. Editez un fichier javascript permettant de lister ma liste de course sous le formulaire.
+        <br>3/ Le bouton "supprimer ma liste" doit effacer la liste à l'écran.
+        <br>(voir shopping-list.html)
+      </p>
+    </div>
+    <form action="" id="formulaire" style="text-align: center;">
+      <input type="text" placeholder="ex: poire" id="myInput" class="in">
+    <!-- <button id="bouton">Envoyer</button>
+    <button id="Supprime">Supprimer ma liste</button> VOIR POUR LES ADAPTER APRES --> 
+    <span onclick="ajoutElement()" class="addBtn">Ajouter</span>
+    <!-- <span onclick="suprElement()" class="addBtn delete">Supprimer ma liste</span> -->
+    <span id="supprime" class="addBtn">Supprimer</span>
+    </form>
+   <div id="shoppingList">
+    <div id="maListeDeCourse">Liste : </div>
+    <ul id="myUL">
+    </ul></div> 
+    <script>
+      //Ici je crée une fonction ajoutElement reliée au bouton ajouter avec le onClick dans le html. Cette fonction va récupérer la valeur de mon input (var inputValue)correspondant au texte saisi par l'utilisateur . Si le bouton ajouter est cliqué alors que l'utilisateur n'a pas saisi de texte (valeur) dans l'input, alors une alert apparaîtra pour lui signaler de saisir du texte. Sinon (si du texte a bien été saisi), la liste ul sera récupéré et on lui ajoutera des enfants li (voir CSS pour code de box et effets des li). Ensuite est créé un élément span qui seront les enfants de mes li, enfants qui auront pour enfants "txt" (voir  variable ligne 44) sur lequel on stylisera et codera les fonctions de fermetures de ces li : on fait une boucle pour cacher les item (voir ligne 61 à 80 "create a close button" pour le détail du bouton de fermeture DE CHAQUE item ) ainsi quand la croix close sera cliquée l'élément li disparaîtra grâce à un display none
+let ajoutElement = () => {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Veuillez écrire quelquechose");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  var close = document.getElementsByClassName("close");
+  var myNodelist = document.getElementsByTagName("li");
+  var span = document.createElement("span");
+  var txt = document.createTextNode("\u00D7");// \u00D7 permet de faire le signe de croix pour le close
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+  // Ici j'ai essayé de créer une condition me permettant de ne supprimer les items de ma liste que lorsqu'il y en a car j'ai un problème avec mon bouton suppression de ligne entière qui fonctionne mais on ne peut plus rajouter des éléments sur la liste par la suite sans revenir à zéro et recharger la page (voir ligne 95) . Pour l'instant je n'ai pas trouvé la solution
+  // var test = document.querySelector("ul")
+  //   btnSupr.addEventListener("click", () =>
+  // {if (t == "")
+  // {t.remove()}})
+}
+      // Create a "close" button and append it to each list item
+// var myNodelist = document.getElementsByTagName("li");
+// var i;
+// for (i = 0; i < myNodelist.length; i++) {
+//   var span = document.createElement("span");
+//   var txt = document.createTextNode("\u00D7");
+//   span.className = "close";
+//   span.appendChild(txt);
+//   myNodelist[i].appendChild(span);
+// }
+// // Click on a close button to hide the current list item
+// var close = document.getElementsByClassName("close");
+// var i;
+// for (i = 0; i < close.length; i++) {
+//    close[i].addEventListener("click", () => {
+//     var div = parentElement;
+//     div.style.display = "none";
+//   })
+// }
+
+
+// Ici on va ajouter un symbole de 'check' ainsi qu'un surlignage de l'item à chaque fois que l'on cliquera dessus. Pour ce faire on crée une variable qui prendra en compte tout ce qui sera dans la lite <ul> puis on lui met pour condition que si dans cette liste <ul>  il y a des <li>(donc des items / définis plus haut) et que si ces <li> sont cliqués de manière spécifique(target) alors on crée une class 'checked' (voir css pour effets surlignage , symbole...) que l'on pourra activer ou désactiver au clic grâce au toggle.
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+//Ici je crée des variables pour mon bouton supprimer et ma liste <ul> entière (liste shopping) que je vais venir effacer au clic du btn supprimer  grace à la méthode remove()
+let btnSupr = document.querySelector("#supprime");
+// let allList = document.querySelectorAll("li")
+var test = document.querySelector("ul")
+btnSupr.addEventListener("click", () =>{
+  test.remove() //marche mais qu'une fois après il faut recharger la page pour remettre des éléments dans la liste 
+  // test.style.display = "none";marche mais qu'une fois
+ 
+ // A L'occasion voir pour effacer les précédents items tapés dans l'input
+  
+  }
+)
+    </script>
+  </body>
+</html>

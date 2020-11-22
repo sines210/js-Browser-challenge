@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="banniere.css">
+    <script src="https://kit.fontawesome.com/6c17918ad5.js" crossorigin="anonymous"></script>
+
+</head>
+  <body>
+    <main>
+      <article>
+    <h1>Bannière JS (Methode commercial pour proposer une promo ou une possibilité d'inscription)</h1>
+     <div class="brief">
+      <p>
+        Vous développez un  site marchand.
+        <br>1/ Faites apparaitre une bannière (proposition d'inscription à la newsletter) 5 secondes après le chargement de la page.
+        <br>2/ Cette bannière doit être fixer en bas de page.
+        <br>3/ Placez un bouton en haut à droite de la bannière pour fermer celle-ci.
+        <br>(voir bannière.html)
+      </p>
+    </div>
+      </article>
+        <div class="banniere banniere-on">
+          <h2>Inscription à la newsletter</h2>
+          <button>Cliquez ici</button>
+          <i class="fas fa-times" id="cross"></i>
+          
+          <!-- Faire un petit formulaire avec email et submit -->
+        </div>
+    
+  </main>
+    <script>
+      var cl = console.log
+
+      //Ici je crée d'abord une variable myBanner qui me permettra de manipuler ma banniere. Ma banniere est caché par mon CSS puisque je lui ai donné la propriété display : none.
+      // J'utilise ensuite la fonction Javascript setTimeOut qui me permet de créer une fonction avec un délai d'éxécution : ici je passe le style de ma bannière en display flex pour la rendre apparente et je lui attribue un délai de 5000ms ou 5s.
+      let myBanner = document.querySelector(".banniere-on");
+     setTimeout(() => {
+      myBanner.style.display = "flex";
+     }, 5000);
+     //Ici je crée un bouton pour refermer la bannière. Pour ce faire j'ai intégré une icone en croix qui fera office de bouton fermant. J'intègre ce bouton à ma variable myCross avec le querySelector puis je crée la fonction closing qui fera disparaître ma banniere avec un display none. Enfin j'ajoute un addEventListener à mon bouton qui actionnera la fonction closing au clic de l'utilisateur.
+     let myCross = document.querySelector("#cross");
+     let closing = () =>
+     {myBanner.style.display = "none"}
+     myCross.addEventListener("click", closing)
+
+    </script>
+  </body>
+</html>

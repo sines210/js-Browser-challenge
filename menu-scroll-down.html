@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./assets/stylesheet/css/menu.css">
+</head>
+  <body>
+  <nav id="menu">
+    <ul style="text-align: center;">
+      <li>Accueil</li>
+      <li>Produit</li>
+      <li>Equipe</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+  <div class="banner">
+    <h1>Créez un menu qui se fixe en haut de la page lorsqu'on scroll-down au dela de 70 px
+    <br>(voir menu-scroll-down.html)
+    </h1>
+  </div>
+    <script>
+
+      // Je déclare que lorsque la fenêtre de l'écran (window) sera scrollé il faudra exécuter la fonction scrollFunction. Auparavant j'ai appliqué en CSS à mon menu une postition fixed pour le rendre 'sticky' avec une position à 150 px du top pour qu'il ne soit pas apparent avant d'avoir scrollé et activé ma fonction et puis je lui ai attribué une transition de 1s pour qu'il y ai un effet de déroulement quand il apparaîtra. Ensuite je crée ma fonction scrollFunction qui devra faire apparaître mon élément "menu"  en haut de l'écran (style.top = 0) à la condition que l'on ai scrollé au delà de 70px sinon (donc au "déscroll" au dessus de 70px), le menu retournera à -150 px et sera caché.
+     window.onscroll = () => {scrollFunction()};
+
+let scrollFunction= () => {
+  if ( document.documentElement.scrollTop > 70) {
+    document.getElementById("menu").style.top = "0";
+  } else {
+    document.getElementById("menu").style.top = "-150px";
+  }
+}
+    </script>
+  </body>
+</html>

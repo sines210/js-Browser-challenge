@@ -1,0 +1,33 @@
+
+main
+{width: auto;
+    height: 300vh;
+  }
+article
+{display: grid;
+    place-items: center;
+position: relative;
+z-index: 5;}
+.banniere-on
+{box-shadow: 3px 3px 3px gray;
+    height: 30vh;
+    width: 100%;
+    z-index: 10;
+    display: none;
+    justify-content: space-between;
+    position: fixed;
+    bottom:0;   /* VOIR POUR LE RESPONSIVE DE LA BOX*/
+    background-color: #E3E3E3 ;
+    opacity: 0.9;} /*voir pour faire apparaître la bannière avec un effet progressif avec une transition sur l'opacité*/
+
+#cross 
+{padding: 2%;}
+h2
+{padding: 5% 0 0 15%;}
+
+button
+{width: 30vh;
+    height: 10vh;
+    border-radius: 30%;
+    margin-top: 10vh;
+}

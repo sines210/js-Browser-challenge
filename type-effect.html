@@ -5,12 +5,31 @@
     <link rel="stylesheet" href="./assets/stylesheet/css/type-effect.css">
   </head>
   <body>
-    <h2>Faire apparaitre le mots de votre choix lettre par lettre dans la balise 'h1' (voir code...)
+    <h2>Faire apparaitre le mots de votre choix lettre par lettre dans la balise 'h3' (voir code...)
     <br>(voir type-effect.html)
     </h2>
-    <h1></h1>
+    <h3> Typewriter effect </h3>
+
+    
   <script>
-    //TODO
+    // Ici et contrairement à la tentative de dessous on utilise par le texte du html mais on vient l'écrire dans le script. D'abord on vient définir une variable i à 0 qui nous servira à faire une boucle./ Puis on définit le texte à manipuler avec la variable txt et la vitesse de l'effet d'apparition speed à 0.1sec.Ensuite on crée une fonction typewriter où on bloucle sur chaque lettre du texte : on fait apparaître chaque lettre en concaténant le txt dans le titre h3 avec le innerHTML (découpage par lettre avec le charAt de i qui représente chaque lettre du txt) et on itère (i++). Enfin on introduit le délai avec le setTimeout auquel on  attribut 2 paramètres ; le texte typewriter découpé en lettres et la vitesse du délai.
+var i = 0;
+var txt = 'Title typewriting effect'; 
+var speed = 100; 
+function typeWriter() {
+  if (i < txt.length) {
+    document.querySelector("h3").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed); }}
+typeWriter()
+
+    // PREMIERE TENTATIVE QUI N'A PAS FONCTIONNE à retrtavailler car c'est possible mais la différence de méthode que j'ai employé est que j'ai voulu travailler sur le style du texte déjà présent dans le html et non sur un texte saisi dans le script puis intégré au HTML. 
+    // var cl = console.log
+    // let title = document.querySelector("h3").innerHTML
+    // var letter = title.split("")
+    // setTimeout(() => {
+    //  letter.style.display = "flex";
+    //  }, 500);
   </script>
   </body>
 </html>

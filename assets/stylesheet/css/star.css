@@ -1,44 +1,40 @@
+
 body{
   font-family: 'Roboto', sans-serif;
-  background-color : rgb(31, 36, 11)
+  background-color : rgb(31, 36, 11);
+  height: 100vh; 
+
 }
 
 h1{
   text-align: center; 
   color: gray;
+  font-size: 25px; 
 }
 
 .star{
-  width: 600px; 
+ 
   margin: 0px auto; 
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  height: 100vh; 
+  font-size: 25px; 
   flex-wrap: wrap;
-
 }
-/* .starClick
-
-{color: red ;} */
 
 #list-of-stars{
   display: flex; 
   list-style: none; 
-  font-size: 100px; 
-
+  font-size: 30px; 
+  color: gray;
 }
 
 
 /* -------------------------- */
 .star-checked{
   color: #FECC02;
-
-
 }
 
 .star-unchecked{
-     
-  color: gray;
-  cursor: pointer;
+  color: red;
 }

@@ -26,25 +26,30 @@
 
   <script>
 
-var starUnChecked = document.querySelectorAll(".star-unchecked")
-var listOfStars = document.querySelector("#list-of-stars")
-console.log(starUnChecked)
-//Convert la liste d'étoile dans un array :
-let starArray = [].map.call(starUnChecked, function(el) {
-    return el;
-})
+    let stars = document.querySelectorAll()
 
-let checkStar = () =>
-{starArray.forEach(star => {
-  var starClass = star.className
-  if(starClass.includes("star"))
-// {essayer un satr class replace avec le sytar-checked}
-  star.addEventListener("click", () =>
-  {star.style.color="yellow"})
-});}
 
-console.log(starClass)
-checkStar()
+
+
+// var starUnChecked = document.querySelectorAll(".star-unchecked")
+// var listOfStars = document.querySelector("#list-of-stars")
+// console.log(starUnChecked)
+// //Convert la liste d'étoile dans un array :
+// let starArray = [].map.call(starUnChecked, function(el) {
+//     return el;
+// })
+
+// let checkStar = () =>
+// {starArray.forEach(star => {
+//   var starClass = star.className
+//   if(starClass.includes("star"))
+// // {essayer un satr class replace avec le sytar-checked}
+//   star.addEventListener("click", () =>
+//   {star.style.color="yellow"})
+// });}
+
+// console.log(starClass)
+// checkStar()
     // Il faudrait itérer de façon à ce que le checked colore toutes les étoiles précédentes.
 
       

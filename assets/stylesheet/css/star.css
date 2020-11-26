@@ -1,5 +1,6 @@
 body{
   font-family: 'Roboto', sans-serif;
+  background-color : rgb(31, 36, 11)
 }
 
 h1{
@@ -15,21 +16,29 @@ h1{
   justify-content: center; 
   height: 100vh; 
   flex-wrap: wrap;
+
 }
+/* .starClick
+
+{color: red ;} */
 
 #list-of-stars{
   display: flex; 
   list-style: none; 
   font-size: 100px; 
-  color: gray;
+
 }
 
 
 /* -------------------------- */
 .star-checked{
   color: #FECC02;
+
+
 }
 
 .star-unchecked{
-  color: #D5D5D5;
+     
+  color: gray;
+  cursor: pointer;
 }

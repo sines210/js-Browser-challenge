@@ -9,78 +9,50 @@
   <h1>Vous trouverez dans le dossier '/assets/images/slider', 4 photos. Codez un slider
   <br>(voir slider.html)
   </h1>
-  
+  <img id="slide" width="400" height="300">
+  <div class="backward">&#10094;</div> 
+  <div class="forward">&#10095;</div> 
 
-  <div class="slideshow-container">
-
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
-      <img src="./assets/images/slider/ulm1.jpg" id="slide" width="400" height="300">
-      <div class="text">Image ULM 1</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="./assets/images/slider/ulm2.jpg" id="slide" width="400" height="300">
-      <div class="text">Image ULM 2</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="./assets/images/slider/ulm3.jpg" id="slide" width="400" height="300">
-      <div class="text">Image ULM 3</div>
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">4 / 4</div>
-      <img src="./assets/images/paramoteur1.jpg" id="slide" width="400" height="300">
-      <div class="text">Pas de multiaxe 4 alors c'est un paramoteur...</div>
-    </div>
-  
-    <!-- Boutons arrière et avant -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>    <!-- Unicode flèche arrière-->
-   <a class="next" onclick="plusSlides(1)">&#10095;</a>     <!-- Unicode flèche avant -->
-  </div>
-  <br>
-  
-  <!-- Les points à cliquer -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-  </div>
-  
   <script>
-    //cette variable slideIndex initialisée à 0 permettra par la suite l'itération et le retour à l'image première lorsque le défilement du carousel est terminé
-    var slideIndex = 1;
-showSlides(slideIndex);
-//Boutons arrière et avant pour faire défiler les photos l'opérateur est += car peu importe l'axe avant ou après 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-//Sélection de l'image avec les points même pricipe que ci dessus 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-// Ici nous déterminons d'abord une variable i qui permettra de boucler. Ensuite on va chercher les deux éléments associés au onclick slides et dot que nous voulons manipuler pour faire la séléction d'image dans le carousel. Puis nous déclarons les conditions : "si n(variable de défilement) est supérieur au nombre de slides alors on revient à l'index1 (càd à la fin du défilement des slides on revient à la première image).A l'inverse si le défilement est inférieur à l'indice 1 on revient au dernier index(correspondant au slide.length) ce qui veut dire qu'en revenant en arrière à la première image j'afficherai la dernière image du carousel. Ensuite on boucle de façon à dissimuler à chaque défilement l'image précédente avec un display : none. De la même manière on boucle après pour change le point en surbrillance selon l'image affichée avec une méthode de replace (la classe active est codée en CSS) : ainsi on vient remplacer un point actif par un point sans classe de surbrillance ( => "active" , "").
+    // La page slide-corrige contient un autre code pour cet exercice que j'ai trouvé sur un forum et intégré. Ce code est plus complet car il contient des boutons et des points pour changer de photo. Ici j'ai essayer de reprendre le travail de zéro pour essayer de faire le code par moi même : le slider fonctionne mais je rencontre qqes difficultés avec le bouton arrière pour l'instant
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
 
+    let imagesArray = ["./assets/images/slider/ulm1.jpg","./assets/images/slider/ulm2.jpg", "./assets/images/slider/ulm3.jpg", "./assets/images/paramoteur1.jpg"]
+    let img = document.querySelector("img")
+    let index = 0
+ 
+    let slide = () =>
+    {   img.src = imagesArray[index]
+       index = index + 1     
+       if(index>=imagesArray.length)
+       {index = 0}
+        setTimeout(
+            slide,2000
+        )
+    }
+    slide()
+
+    // Ici je voudrai travailler sur les boutons et leurs mise en action pour ll'instant le bouton backwards n'est pas fonctionnel
+    // let backwards = document.querySelector(".backward")
+    // let forwards = document.querySelector(".forward")
+    // let slidBack = () =>
+    // {     img.src = imagesArray[index]
+    //         index = index + 1
+    //         if(index <=0)
+    //         {index === imagesArray.length}
+    //         }
+
+    // slidBack()
+    // let slider = () =>
+    // {
+    //     img.src = imagesArray[index]
+    //     index = index +1
+    //     forwards.addEventListener('click', slider)
+    //     if(index>=imagesArray.length)
+    //     {index=0}
+    //     backwards.addEventListener('click', slidBack)
+    //     }
+    // slider()
 
 
   </script>

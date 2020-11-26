@@ -11,18 +11,44 @@
     <h1>ALLO CINE ! Un click sur une des étoiles permettra des la passer au jaunes ainsi que toutes les étoiles précédentes
     <br>(voir star.html)
     </h1>
-
+    <!-- <marquee behavior="" direction=""></marquee> Voir compment se servir d'une balise marquee -->
     <ul id="list-of-stars">
-      <li><i class="fas fa-star"></i></li>
-      <li><i class="fas fa-star"></i></li>
-      <li><i class="fas fa-star"></i></li>
-      <li><i class="fas fa-star"></i></li>
-      <li><i class="fas fa-star"></i></li>
+
+
+      <li><i class="fas fa-star star-unchecked" id="star"></i></li>
+      <li><i class="fas fa-star star-unchecked" id="star"></i></li>
+      <li><i class="fas fa-star star-unchecked" id="star"></i></li>
+      <li><i class="fas fa-star star-unchecked" id="star"></i></li>
+      <li><i class="fas fa-star star-unchecked" id="star"></i></li>
+
     </ul>
   </div>
-  <div class="test"></div>
+
   <script>
-    //TODO
+
+var starUnChecked = document.querySelectorAll(".star-unchecked")
+var listOfStars = document.querySelector("#list-of-stars")
+console.log(starUnChecked)
+//Convert la liste d'étoile dans un array :
+let starArray = [].map.call(starUnChecked, function(el) {
+    return el;
+})
+
+let checkStar = () =>
+{starArray.forEach(star => {
+  var starClass = star.className
+  if(starClass.includes("star"))
+// {essayer un satr class replace avec le sytar-checked}
+  star.addEventListener("click", () =>
+  {star.style.color="yellow"})
+});}
+
+console.log(starClass)
+checkStar()
+    // Il faudrait itérer de façon à ce que le checked colore toutes les étoiles précédentes.
+
+      
+
   </script>
 </body>
 </html>

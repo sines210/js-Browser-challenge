@@ -21,6 +21,7 @@ body{
     user-select: none;
   }
   /* Position the "next button" to the right */
+  /* Recoder les flèches et essayer qu'elles restent en place au passage au responsive */
 
 .prev
 {left: 80vh}

@@ -7,12 +7,23 @@
     <h1 style="margin-top: 350px; text-align: center; color: gray;">Elagir le formulaire au passage de la souris
     <br>(voir dynamic-form)
     </h1>
+    <h2>Titre</h2>
 
     <form action="" style="text-align: center;">
-      <input type="text">
+      <input type="text" placeholder=" Type here">
     </form>
     <script>
-      //TODO
+      var getInput = document.querySelector("input")
+      var title = document.querySelector("h2")
+      title.innerHTML = "remplace texte" // sert à remplacer du texte on aurait aussi pu utiliser innerText
+
+     
+      let changeScale = () =>
+      {getInput.addEventListener("mouseover", () =>
+      {document.querySelector("input").classList.add("inputChanger")})
+      
+    }
+      changeScale()
     </script>
   </body>
 </html>

@@ -33,7 +33,7 @@
         {star.classList.add("star-unchecked")} )
 
   
-
+    // Je crée une fonction checkStars dans laquelle je crée une boucle index i ou chaque i correspond à l'index de chaque étoile. J'ajoute un addEventListener au clic de l'utilisateur sur ces étoiles indexées où devront s'fficher des fonctions sous conditions : Ainsi si les étoiles sont liées à la classe 'star-unchecked' (ce qui est le cas puisque cette classe à été attribuée plus tôt) on crée deux boucles : une boucle avec la variable "a" liée à l'index des étoiles (et donc au clic) où quand il y aura un clic sur cette étoile "a" toutes les étoiles précédant cette étoile "a" ainsi qu'elle même passeront de la classe "unchecked" à la classe "checked"(changement couleur). Puis une boucle "étoiles b" où toutes les étoiles suivant l'étoile index i cliquée passeront de la classe "checked" à la classe 'unchecked' (et donc garderont leur couleur d'origine par défaut). Enfin je crée un condition else permettant à l'utilisateur de revenir à la situation initiale(s'il veut changer sa notation par exemple) où j'inverse la situation de la variable 'a' au clic si ces étoiles sont liées à la classe "checked" pour lui redonner la classe 'unchecked'. Plus bas il y a un explicatif à propos de mon choix quand à l'utilisation de cette méthode remove et add plutôt qu'un toggle.
    let ckeckStars = () =>
    {     
        for(let i=0; i<=stars.length; i++)  
@@ -49,9 +49,9 @@
           {for (let a=0; a<=i; a++)
           { stars[a].classList.remove("star-checked");
            stars[a].classList.add("star-unchecked")};
-              for(let b=0; b>i; b++)
-          {stars[b].classList.remove("star-checked");
-          stars[b].classList.add("star-unchecked")}
+          //     for(let b=0; b>i; b++)
+          // {stars[b].classList.remove("star-checked");
+          // stars[b].classList.add("star-unchecked")}
         }
     })}
 
